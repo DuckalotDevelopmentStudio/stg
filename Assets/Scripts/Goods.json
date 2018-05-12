@@ -1,0 +1,48 @@
+{
+    "goods": {
+        "plasteel": {
+            "name": "Plasteel ingots",
+            "price": 10
+        },
+        "iron": {
+            "name": "Iron",
+            "price": 10
+        },
+        "water": {
+            "name": "Water",
+            "price": 10
+        },
+        "paste": {
+            "name": "Nutrient Paste",
+            "price": 10
+        },
+        "powercores": {
+            "name": "Power Cores",
+            "price": 10
+        },
+        "fuel": {
+            "name": "Fuel",
+            "price": 10
+        },
+        "mechparts": {
+            "name": "Mechanical Parts",
+            "price": 10
+        },
+        "slaves": {
+            "name": "Slaves",
+            "price": 10
+        },
+        "weapons": {
+            "name": "Weapons",
+            "price": 10
+        },
+        "nuclearwaste": {
+            "name": "Nuclear Waste",
+            "price": 10
+        },
+        "robots": {
+            "name": "Robots",
+            "price": 10
+        }
+    }
+}
