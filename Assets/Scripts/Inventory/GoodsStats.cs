@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodsStats : MonoBehaviour {
-    
+public class GoodsStats : MonoBehaviour
+{
+
     public static GoodsList goodsList = new GoodsList();
 
-	void Awake () {
+    void Awake()
+    {
         LoadGoods();
-	}
+    }
 
     #region Functions
     void LoadGoods()
@@ -16,19 +18,33 @@ public class GoodsStats : MonoBehaviour {
         if (asset != null)
         {
             goodsList = JsonUtility.FromJson<GoodsList>(asset.text);
-            
+
         }
     }
     public static Goods GetGoodsByName(string name)
     {
-        foreach(Goods goods in goodsList.Goods)
+        foreach (Goods goods in goodsList.Goods)
         {
-            if(goods.name == name)
+            if (goods.name.Equals(name))
             {
                 return goods;
             }
         }
         return null;
-    } 
+    }
+    public static Goods GetGoodsByName(string[] names)
+    {
+        foreach (string name in names)
+        {
+            foreach (Goods goods in goodsList.Goods)
+            {
+                if (goods.name.Equals(name))
+                {
+                    return goods;
+                }
+            }
+        }
+        return null;
+    }
     #endregion
 }
