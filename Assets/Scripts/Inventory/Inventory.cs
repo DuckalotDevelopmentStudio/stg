@@ -18,7 +18,22 @@ public class Inventory {
     {
         return money;
     }
-    
+
+    public virtual void AddItem(Item itemToAdd)
+    {
+        inventory.Add(itemToAdd);
+    }
+    public virtual void RemoveItem(Item itemToRemove)
+    {
+        if (inventory.Contains(itemToRemove))
+        {
+            int index = inventory.IndexOf(itemToRemove);
+            Item item = inventory[index];
+            inventory.Remove(item);
+        }
+
+    }
+
 }
 public class PlayerInventory : Inventory {
 
@@ -32,7 +47,7 @@ public class PlayerInventory : Inventory {
     }
     
 
-    public void AddItem(Item itemToAdd)
+    public override void AddItem(Item itemToAdd)
     {
         if (itemToAdd.weight + currentWeight <= maxWeight)
         {
@@ -40,7 +55,7 @@ public class PlayerInventory : Inventory {
             currentWeight += itemToAdd.weight;
         }
     }
-    public void RemoveItem(Item itemToRemove)
+    public override void RemoveItem(Item itemToRemove)
     {
         if (inventory.Contains(itemToRemove))
         {
