@@ -1,5 +1,5 @@
 ﻿[System.Serializable]
-public class Goods
+public class Item
 {
     public string name;
     public int price;

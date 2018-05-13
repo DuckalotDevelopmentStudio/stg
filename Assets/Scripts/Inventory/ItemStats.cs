@@ -1,29 +1,29 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodsStats : MonoBehaviour
+public class ItemStats : MonoBehaviour
 {
 
-    public static GoodsList goodsList = new GoodsList();
+    public ItemsList itemList = new ItemsList();
 
     void Awake()
     {
-        LoadGoods();
+        LoadItem();
     }
 
     #region Functions
-    void LoadGoods()
+    void LoadItem()
     {
-        TextAsset asset = Resources.Load("Goods") as TextAsset;
+        TextAsset asset = Resources.Load("Item") as TextAsset;
         if (asset != null)
         {
-            goodsList = JsonUtility.FromJson<GoodsList>(asset.text);
+            itemList = JsonUtility.FromJson<ItemsList>(asset.text);
 
         }
     }
-    public static Goods GetGoodsByName(string name)
+    public Item GetGoodsByName(string name)
     {
-        foreach (Goods goods in goodsList.Goods)
+        foreach (Item goods in itemList.Item)
         {
             if (goods.name.Equals(name))
             {
@@ -32,11 +32,11 @@ public class GoodsStats : MonoBehaviour
         }
         return null;
     }
-    public static Goods GetGoodsByName(string[] names)
+    public Item GetGoodsByName(string[] names)
     {
         foreach (string name in names)
         {
-            foreach (Goods goods in goodsList.Goods)
+            foreach (Item goods in itemList.Item)
             {
                 if (goods.name.Equals(name))
                 {

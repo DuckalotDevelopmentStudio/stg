@@ -7,27 +7,27 @@ public class Inventory : MonoBehaviour {
     int maxWeight;
     int currentWeight = 0;
     [SerializeField]
-    List<Goods> inventory = new List<Goods>();
+    List<Item> inventory = new List<Item>();
 
-    public void AddItem(Goods itemToAdd)
+    public void AddItem(Item itemToAdd)
     {
         if (itemToAdd.weight+currentWeight <= maxWeight) {
             inventory.Add(itemToAdd);
             currentWeight += itemToAdd.weight;
         } 
     }
-    public void RemoveItem(Goods itemToRemove)
+    public void RemoveItem(Item itemToRemove)
     {
         if (inventory.Contains(itemToRemove))
         {
             int index = inventory.IndexOf(itemToRemove);
-            Goods item = inventory[index];
+            Item item = inventory[index];
             inventory.Remove(item);
             currentWeight -= item.weight;
         }
             
     }
-    public List<Goods> GetInventory()
+    public List<Item> GetInventory()
     {
         return inventory;
     }

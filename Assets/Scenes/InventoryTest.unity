@@ -248,8 +248,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1726616395}
-  - component: {fileID: 1726616396}
   - component: {fileID: 1726616397}
+  - component: {fileID: 1726616396}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -281,6 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93807eb1bcfa04a46bcb1f114600aa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemList:
+    ItemList: []
 --- !u!114 &1726616397
 MonoBehaviour:
   m_ObjectHideFlags: 0
