@@ -3,5 +3,5 @@ public class Goods
 {
     public string name;
     public int price;
-    public int size;
+    public int weight;
 }

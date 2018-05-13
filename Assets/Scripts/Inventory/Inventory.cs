@@ -11,25 +11,25 @@ public class Inventory : MonoBehaviour {
 
     public void AddItem(Goods itemToAdd)
     {
-        if (((itemToAdd.size)+currentWeight) <= maxWeight) {
+        if (itemToAdd.weight+currentWeight <= maxWeight) {
             inventory.Add(itemToAdd);
-            currentWeight += itemToAdd.size;
+            currentWeight += itemToAdd.weight;
         } 
     }
     public void RemoveItem(Goods itemToRemove)
     {
-            foreach (Goods item in inventory)
-            {
-                if (item == itemToRemove)
-                {
-                    inventory.Remove(item);
-                    currentWeight -= item.size;
-                }
-            }
+        if (inventory.Contains(itemToRemove))
+        {
+            int index = inventory.IndexOf(itemToRemove);
+            Goods item = inventory[index];
+            inventory.Remove(item);
+            currentWeight -= item.weight;
+        }
+            
     }
     public List<Goods> GetInventory()
     {
         return inventory;
     }
-
+    
 }

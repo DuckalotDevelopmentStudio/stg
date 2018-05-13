@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class GoodsStats : MonoBehaviour {
-
+    
     public static GoodsList goodsList = new GoodsList();
 
 	void Awake () {
