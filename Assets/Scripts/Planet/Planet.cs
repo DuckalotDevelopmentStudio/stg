@@ -15,6 +15,20 @@ public class Planet : MonoBehaviour {
 	public Text descText;
 
 	void Awake(){
+		SetUIText();
+	}
+
+	public void Visit(){
+		Debug.Log("Visiting " + name);
+		OpenUI();
+	}
+
+	private void OpenUI(){
+		planetPanel.SetActive(true);
+	}
+
+	private void SetUIText(){
+		// Reads the info about the planet from the txt file
 		string planetText = planetInfo.text;
 		int seperator = planetText.IndexOf('\n');
 
@@ -25,15 +39,6 @@ public class Planet : MonoBehaviour {
 
 		nameText.text = name;
 		descText.text = description;
-	}
-
-	public void Visit(){
-		Debug.Log("Visiting " + name);
-		openUI();
-	}
-
-	public void openUI(){
-		planetPanel.SetActive(true);
 	}
 
 	void OnMouseOver(){
