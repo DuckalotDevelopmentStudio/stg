@@ -1,0 +1,60 @@
+{
+	"Goods":
+	[
+		{
+			"name": "Plasteel Ingots",
+			"price": 10,
+			"size" : 1
+        },
+        {
+			"name": "Iron",
+			"price": 10,
+			"size": 1
+        },
+        {
+			"name": "Water",
+			"price": 10,
+			"size": 1
+        },
+        {
+			"name": "Nutrient Paste",
+			"price": 10,
+			"size": 1
+        },
+        {
+            "name": "Power Cores",
+            "price": 10,
+			"size": 1
+        },
+        {
+            "name": "Fuel",
+            "price": 10,
+			"size": 1
+        },
+        {
+            "name": "Mechanical Parts",
+            "price": 10,
+			"size": 1
+        },
+        {
+            "name": "Slaves",
+            "price": 10,
+			"size": 1
+        },
+        {
+            "name": "Weapons",
+            "price": 10,
+			"size": 1
+        },
+        {
+			"name": "Nuclear Waste",
+			"price": 10,
+			"size": 1
+        },
+        {
+			"name": "Robots",
+			"price": 10,
+			"size": 1
+		}
+	]
+}
