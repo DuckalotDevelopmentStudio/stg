@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Planet : MonoBehaviour {
 
@@ -8,9 +9,12 @@ public class Planet : MonoBehaviour {
 	public string name;
 	public string description;
 
+	[Header("UI")]
+	public GameObject planetPanel;
+	public Text nameText;
+	public Text descText;
+
 	void Awake(){
-
-
 		string planetText = planetInfo.text;
 		int seperator = planetText.IndexOf('\n');
 
@@ -18,13 +22,24 @@ public class Planet : MonoBehaviour {
 			name = planetText.Substring(0, seperator);
 			description = planetText.Substring(seperator+1);
 		}
-		
-		Debug.Log(name);
-		Debug.Log(description);
+
+		nameText.text = name;
+		descText.text = description;
 	}
 
-	public void visit(){
+	public void Visit(){
+		Debug.Log("Visiting " + name);
+		openUI();
+	}
 
+	public void openUI(){
+		planetPanel.SetActive(true);
+	}
+
+	void OnMouseOver(){
+		if(Input.GetMouseButtonDown(0)){
+			Visit();
+		}
 	}
 
 }
