@@ -577,12 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83378ddb87e6ad445afdff339cd308a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetInfo: {fileID: 4900000, guid: 3df31b69f0dc94046b7f5bc0b934e453, type: 3}
-  planetName: 
-  planetDescription: 
-  planetPanel: {fileID: 620177285}
-  nameText: {fileID: 1271094116}
-  descText: {fileID: 235965633}
+  textFile: {fileID: 4900000, guid: 3df31b69f0dc94046b7f5bc0b934e453, type: 3}
 --- !u!1 &469752369
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +781,7 @@ GameObject:
   - component: {fileID: 620177286}
   - component: {fileID: 620177288}
   - component: {fileID: 620177287}
+  - component: {fileID: 620177289}
   m_Layer: 5
   m_Name: Hubble_UI
   m_TagString: Untagged
@@ -846,6 +842,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 620177285}
+--- !u!114 &620177289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 620177285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd881d95765f68849989ce00993d09fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 350277400}
+  planetPanel: {fileID: 620177285}
+  nameText: {fileID: 1271094116}
+  descText: {fileID: 235965633}
 --- !u!1 &826618433
 GameObject:
   m_ObjectHideFlags: 0

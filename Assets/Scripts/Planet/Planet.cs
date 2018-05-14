@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Planet : MonoBehaviour {
-	[HideInInspector]
-	public PlanetInfo info;
+
+    public delegate void VisitPlanet();
+    public event VisitPlanet OnVisit;
+
+    PlanetInfo info;
 	private PlanetUI ui;
+    TextAsset textFile;
 
 	void Awake(){
-		info.GetInfoFromFile();
+        CreatePlanet();
 	}
 
 	public void Visit(){
-		ui.OpenUI();
+        OnVisit();
 	}
 
 	void OnMouseOver(){
@@ -21,5 +25,16 @@ public class Planet : MonoBehaviour {
 			Visit();
 		}
 	}
+
+    void CreatePlanet()
+    {
+        textFile = Resources.Load("Planets/Planet_Hubble") as TextAsset;
+        info = new PlanetInfo(textFile, 10f);
+    }
+    //Returns Info on Planet
+    public PlanetInfo GetPlanetInfo()
+    {
+        return info;
+    }
 
 }

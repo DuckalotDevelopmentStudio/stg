@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetInfo : MonoBehaviour {
-	[SerializeField]
+public class PlanetInfo {
 	private TextAsset planetInfo;
-
-	public string name;
-	public string desc;
+	string name;
+	string desc;
+    PlanetInventory inventory;
 
 	public void GetInfoFromFile(){
 		string planetText = planetInfo.text;
@@ -18,4 +17,23 @@ public class PlanetInfo : MonoBehaviour {
 			desc = planetText.Substring(seperator+1);
 		}
 	}
+
+    public PlanetInfo(TextAsset newPlanetInfo, float money)
+    {
+        planetInfo = newPlanetInfo;
+        GetInfoFromFile();
+        inventory = new PlanetInventory(money);
+    }
+    public string GetName()
+    {
+        return name;
+    }
+    public string GetDescription()
+    {
+        return desc;
+    }
+    public PlanetInventory GetInventory()
+    {
+        return inventory;
+    }
 }

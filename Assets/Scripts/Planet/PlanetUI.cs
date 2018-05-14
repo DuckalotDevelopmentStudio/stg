@@ -16,13 +16,19 @@ public class PlanetUI : MonoBehaviour {
 	private Text descText;
 
 	void Awake(){
-		planetPanel.SetActive(false);
-	}
+        nameText.text = planet.GetPlanetInfo().GetName();
+        descText.text = planet.GetPlanetInfo().GetDescription();
+        planetPanel.SetActive(false);
+        planet.OnVisit += OpenUI;
+    }
 
 	public void OpenUI(){
-		nameText.text = planet.info.name;
-		descText.text = planet.info.desc;
 		planetPanel.SetActive(true);
 	}
+
+    void OnDisable()
+    {
+        planet.OnVisit -= OpenUI; 
+    }
 
 }
