@@ -578,8 +578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetInfo: {fileID: 4900000, guid: 3df31b69f0dc94046b7f5bc0b934e453, type: 3}
-  name: 
-  description: 
+  planetName: 
+  planetDescription: 
   planetPanel: {fileID: 620177285}
   nameText: {fileID: 1271094116}
   descText: {fileID: 235965633}
@@ -876,7 +876,7 @@ Transform:
   - {fileID: 601616400}
   - {fileID: 1605773631}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012217329
 GameObject:
@@ -1256,7 +1256,7 @@ RectTransform:
   m_Children:
   - {fileID: 589421185}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

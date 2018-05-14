@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Planet : MonoBehaviour {
-
-	public TextAsset planetInfo;
-	public string name;
-	public string description;
+	[SerializeField]
+	private TextAsset planetInfo;
+	public string planetName;
+	public string planetDescription;
 
 	[Header("UI")]
-	public GameObject planetPanel;
-	public Text nameText;
-	public Text descText;
+	[SerializeField]
+	private GameObject planetPanel;
+	[SerializeField]
+	private Text nameText;
+	[SerializeField]
+	private Text descText;
 
 	void Awake(){
 		SetUIText();
+		planetPanel.SetActive(false);
 	}
 
 	public void Visit(){
-		Debug.Log("Visiting " + name);
+		Debug.Log("Visiting " + planetName);
 		OpenUI();
 	}
 
@@ -33,12 +37,12 @@ public class Planet : MonoBehaviour {
 		int seperator = planetText.IndexOf('\n');
 
 		if(seperator > -1){
-			name = planetText.Substring(0, seperator);
-			description = planetText.Substring(seperator+1);
+			planetName = planetText.Substring(0, seperator);
+			planetDescription = planetText.Substring(seperator+1);
 		}
 
-		nameText.text = name;
-		descText.text = description;
+		nameText.text = planetName;
+		descText.text = planetDescription;
 	}
 
 	void OnMouseOver(){
