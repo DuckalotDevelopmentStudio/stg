@@ -16,18 +16,8 @@ public class PlanetUI : MonoBehaviour
     void Awake()
     {
         Planet.OnVisit += OpenUI;
-        planetPanel.SetActive(false);
+        DisableUI();
     }
-
-    // void OnEnable()
-    // {
-    //     Planet.OnVisit += OpenUI;
-    // }
-
-    // void OnDisable()
-    // {
-    //     Planet.OnVisit -= OpenUI;
-    // }
 
     public void OpenUI(GameObject planetVisited)
     {
@@ -37,4 +27,15 @@ public class PlanetUI : MonoBehaviour
         if (!planetPanel.activeSelf)
             planetPanel.SetActive(true);
     }
+    
+    public void DisableUI()
+    {
+        planetPanel.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        Planet.OnVisit -= OpenUI;
+    }
+
 }

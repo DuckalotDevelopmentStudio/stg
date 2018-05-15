@@ -20,6 +20,15 @@ public class Planet : MonoBehaviour
         SetPlanetInfo(planetInfoFilePath);
     }
 
+    void OnMouseOver()
+
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Visit();
+        }
+    }
+
     public void Visit()
     {
         if (OnVisit != null)
@@ -28,18 +37,13 @@ public class Planet : MonoBehaviour
         }
     }
 
-    void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Visit();
-        }
-    }
-
     void SetPlanetInfo(string path)
     {
-        TextAsset planetInfoTextFile = Resources.Load(path) as TextAsset;
-        planetInfo = new PlanetInfo(planetInfoTextFile, 10f);
+        if (path != null)
+        {
+            TextAsset planetInfoTextFile = Resources.Load(path) as TextAsset;
+            planetInfo = new PlanetInfo(planetInfoTextFile, 10f);
+        }
     }
     public PlanetInfo GetPlanetInfo()
     {
