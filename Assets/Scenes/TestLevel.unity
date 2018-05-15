@@ -277,7 +277,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 826618434}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &212808703
 SphereCollider:
@@ -510,7 +510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 826618434}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &350277397
 SphereCollider:
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83378ddb87e6ad445afdff339cd308a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: 3df31b69f0dc94046b7f5bc0b934e453, type: 3}
+  planetInfoFilePath: Planets/Planet_Hubble
 --- !u!1 &469752369
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 826618434}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &601616401
 SphereCollider:
@@ -855,8 +855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planet: {fileID: 350277400}
   planetPanel: {fileID: 620177285}
-  nameText: {fileID: 1271094116}
-  descText: {fileID: 235965633}
+  planetNameText: {fileID: 1271094116}
+  planetDescText: {fileID: 235965633}
 --- !u!1 &826618433
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,10 +882,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1605773631}
   - {fileID: 350277396}
   - {fileID: 212808702}
   - {fileID: 601616400}
-  - {fileID: 1605773631}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 1605773633}
   - component: {fileID: 1605773632}
   m_Layer: 0
-  m_Name: Sphere (3)
+  m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,11 +1120,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1605773630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31000006, y: 0, z: 0.21}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 826618434}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1605773632
 SphereCollider:

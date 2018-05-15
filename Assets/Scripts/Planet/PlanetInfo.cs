@@ -2,38 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetInfo {
-	private TextAsset planetInfo;
-	string name;
-	string desc;
-    PlanetInventory inventory;
+public class PlanetInfo
+{
+    //private TextAsset planetInfo;
+    private string planetName;
+    private string planetDescription;
+    PlanetInventory planetInventory;
 
-	public void GetInfoFromFile(){
-		string planetText = planetInfo.text;
-		int seperator = planetText.IndexOf('\n');
+    public PlanetInfo(TextAsset planetInfoTextFile, float moneyAmount)
+    {
+        GetInfoFromFile(planetInfoTextFile);
+        planetInventory = new PlanetInventory(moneyAmount);
+    }
 
-		if(seperator > -1){
-			name = planetText.Substring(0, seperator);
-			desc = planetText.Substring(seperator+1);
-		}
-	}
+    public void GetInfoFromFile(TextAsset planetInfoTextFile)
+    {
+        string planetText = planetInfoTextFile.text;
+        int seperator = planetText.IndexOf('\n');
 
-    public PlanetInfo(TextAsset newPlanetInfo, float money)
-    {
-        planetInfo = newPlanetInfo;
-        GetInfoFromFile();
-        inventory = new PlanetInventory(money);
+        if (seperator > -1)
+        {
+            planetName = planetText.Substring(0, seperator);
+            planetDescription = planetText.Substring(seperator + 1);
+        }
     }
-    public string GetName()
+    public string GetPlanetName()
     {
-        return name;
+        return planetName;
     }
-    public string GetDescription()
+    public string GetPlanetDescription()
     {
-        return desc;
+        return planetDescription;
     }
-    public PlanetInventory GetInventory()
+    public PlanetInventory GetPlanetInventory()
     {
-        return inventory;
+        return planetInventory;
     }
 }

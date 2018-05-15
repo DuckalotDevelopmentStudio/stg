@@ -25,25 +25,31 @@ public class ItemStats : MonoBehaviour
     {
         foreach (Item goods in itemList.Item)
         {
-            if (goods.name.Equals(name))
+            if (goods.itemName.Equals(name))
             {
                 return goods;
             }
         }
         return null;
     }
-    public Item GetGoodsByName(string[] names)
+    public List<Item> GetGoodsByName(string[] names)
     {
+        List<Item> listOfGoods = new List<Item>();
+
         foreach (string name in names)
         {
             foreach (Item goods in itemList.Item)
             {
-                if (goods.name.Equals(name))
+                if (goods.itemName.Equals(name))
                 {
-                    return goods;
+                    listOfGoods.Add(goods);
                 }
             }
         }
+
+        if(listOfGoods != null)
+            return listOfGoods;
+        
         return null;
     }
     #endregion

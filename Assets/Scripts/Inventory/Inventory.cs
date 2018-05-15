@@ -4,19 +4,19 @@ using UnityEngine;
 public class Inventory {
 
     protected List<Item> inventory = new List<Item>();
-    protected float money;
+    protected float currentMoneyAmount;
 
     public void AddMoney(int amount)
     {
-        money += amount;
+        currentMoneyAmount += amount;
     }
     public void RemoveMoney(int amount)
     {
-        money -= amount;
+        currentMoneyAmount -= amount;
     }
-    public float GetMoney()
+    public float GetCurrentMoneyAmount()
     {
-        return money;
+        return currentMoneyAmount;
     }
 
     public virtual void AddItem(Item itemToAdd)
@@ -31,28 +31,27 @@ public class Inventory {
             Item item = inventory[index];
             inventory.Remove(item);
         }
-
     }
 
 }
 public class PlayerInventory : Inventory {
 
-    int maxWeight;
-    int currentWeight;
+    private int maxWeight;
+    private int currentWeight;
 
-    public PlayerInventory (int newMaxWeight, float newMoney)
+    public PlayerInventory (int newMaxWeight, float moneyAmount)
     {
         maxWeight = newMaxWeight;
-        money = newMoney;
+        currentMoneyAmount = moneyAmount;
     }
     
 
     public override void AddItem(Item itemToAdd)
     {
-        if (itemToAdd.weight + currentWeight <= maxWeight)
+        if (itemToAdd.itemWeight + currentWeight <= maxWeight)
         {
             inventory.Add(itemToAdd);
-            currentWeight += itemToAdd.weight;
+            currentWeight += itemToAdd.itemWeight;
         }
     }
     public override void RemoveItem(Item itemToRemove)
@@ -62,20 +61,20 @@ public class PlayerInventory : Inventory {
             int index = inventory.IndexOf(itemToRemove);
             Item item = inventory[index];
             inventory.Remove(item);
-            currentWeight -= item.weight;
+            currentWeight -= item.itemWeight;
         }
 
     }
-    public List<Item> GetInventory()
+    public List<Item> GetInventoryList()
     {
         return inventory;
     }
 }
 public class PlanetInventory : Inventory
 {
-    public PlanetInventory(float newMoney)
+    public PlanetInventory(float moneyAmount)
     {
-        money = newMoney;
+        currentMoneyAmount = moneyAmount;
     }
 }
 

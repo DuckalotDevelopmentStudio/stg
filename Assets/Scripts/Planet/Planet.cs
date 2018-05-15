@@ -3,38 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Planet : MonoBehaviour {
+public class Planet : MonoBehaviour
+{
 
-    public delegate void VisitPlanet();
-    public event VisitPlanet OnVisit;
+    public delegate void VisitPlanet(GameObject planetToVisit);
+    public static event VisitPlanet OnVisit;
 
-    PlanetInfo info;
-	private PlanetUI ui;
-    TextAsset textFile;
+    [SerializeField]
+    private string planetInfoFilePath = null;
 
-	void Awake(){
-        CreatePlanet();
-	}
+    private PlanetInfo planetInfo;
+    private PlanetUI planetUI;
 
-	public void Visit(){
-        OnVisit();
-	}
-
-	void OnMouseOver(){
-		if(Input.GetMouseButtonDown(0)){
-			Visit();
-		}
-	}
-
-    void CreatePlanet()
+    void Awake()
     {
-        textFile = Resources.Load("Planets/Planet_Hubble") as TextAsset;
-        info = new PlanetInfo(textFile, 10f);
+        SetPlanetInfo(planetInfoFilePath);
     }
-    //Returns Info on Planet
+
+    public void Visit()
+    {
+        if (OnVisit != null)
+        {
+            OnVisit(gameObject);
+        }
+    }
+
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Visit();
+        }
+    }
+
+    void SetPlanetInfo(string path)
+    {
+        TextAsset planetInfoTextFile = Resources.Load(path) as TextAsset;
+        planetInfo = new PlanetInfo(planetInfoTextFile, 10f);
+    }
     public PlanetInfo GetPlanetInfo()
     {
-        return info;
+        return planetInfo;
     }
-
 }
