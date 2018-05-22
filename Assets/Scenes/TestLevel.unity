@@ -376,8 +376,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb54abc96510fc439bcd26b6e262601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 10
-  RotationSpeed: 40
+  ForwardMovementSpeed: 7
+  BackMovementSpeed: 1
+  RotationSpeed: 60
+  MovementFuelCost: 0.1
+  RotationFuelCost: 0.025
+  Fuel: 100
 --- !u!65 &223952791
 BoxCollider:
   m_ObjectHideFlags: 0
