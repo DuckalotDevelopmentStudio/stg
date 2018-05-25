@@ -8,6 +8,8 @@ public class PlanetInfo
     private string planetName;
     private string planetDescription;
     PlanetInventory planetInventory;
+    public string buy;
+    public string sell;
 
     public PlanetInfo(TextAsset planetInfoTextFile, float moneyAmount)
     {

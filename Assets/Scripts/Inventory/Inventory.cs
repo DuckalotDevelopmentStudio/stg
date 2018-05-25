@@ -48,10 +48,10 @@ public class PlayerInventory : Inventory {
 
     public override void AddItem(Item itemToAdd)
     {
-        if (itemToAdd.itemWeight + currentWeight <= maxWeight)
+        if (itemToAdd.weight + currentWeight <= maxWeight)
         {
             inventory.Add(itemToAdd);
-            currentWeight += itemToAdd.itemWeight;
+            currentWeight += itemToAdd.weight;
         }
     }
     public override void RemoveItem(Item itemToRemove)
@@ -61,7 +61,7 @@ public class PlayerInventory : Inventory {
             int index = inventory.IndexOf(itemToRemove);
             Item item = inventory[index];
             inventory.Remove(item);
-            currentWeight -= item.itemWeight;
+            currentWeight -= item.weight;
         }
 
     }

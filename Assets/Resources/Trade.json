@@ -1,0 +1,20 @@
+{
+	"Trade": [
+		{
+			"name" : "Hubble",
+			"buy" : "Iron",
+			"sell" : "Fuel"
+		},
+		{
+			"name" : "Higoon",
+			"buy" : "Mechanical Parts",
+			"sell" : "Iron"
+		},
+		{
+			"name" : "Steineg",
+			"buy" : "Weapons",
+			"sell" : "Mechanical Parts"
+		}
+
+	]
+}

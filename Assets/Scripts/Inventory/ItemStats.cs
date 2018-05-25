@@ -6,9 +6,10 @@ public class ItemStats : MonoBehaviour
 
     public ItemsList itemList = new ItemsList();
 
-    void Awake()
+    void Start()
     {
         LoadItem();
+        Debug.Log(itemList.Item[0].name);
     }
 
     #region Functions
@@ -25,7 +26,7 @@ public class ItemStats : MonoBehaviour
     {
         foreach (Item goods in itemList.Item)
         {
-            if (goods.itemName.Equals(name))
+            if (goods.name.Equals(name))
             {
                 return goods;
             }
@@ -40,7 +41,7 @@ public class ItemStats : MonoBehaviour
         {
             foreach (Item goods in itemList.Item)
             {
-                if (goods.itemName.Equals(name))
+                if (goods.name.Equals(name))
                 {
                     listOfGoods.Add(goods);
                 }
