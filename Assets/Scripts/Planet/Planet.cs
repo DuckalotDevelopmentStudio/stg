@@ -14,9 +14,14 @@ public class Planet : MonoBehaviour
     private ItemStats ItemStats;
     [SerializeField]
     private string planetInfoFilePath = null;
+    [SerializeField]
+    private GameObject spaceship;
 
     private PlanetInfo planetInfo;
+    [SerializeField]
     private PlanetUI planetUI;
+
+    public float visitDistance = 3f;
 
     void Awake()
     {
@@ -32,11 +37,29 @@ public class Planet : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //Debug.Log(Vector3.Distance(GetComponent<Transform>().position, spaceship.transform.position));
+        if(Vector3.Distance(gameObject.transform.position, spaceship.transform.position) < visitDistance)
+        {
+            planetUI.OpenVisitUI(gameObject);
+            Debug.Log("Player is near: " + planetInfo.GetPlanetName());
+        }
+        else
+        {
+            planetUI.CloseVisitUI(gameObject);
+        }
+    }
+
     public void Visit()
     {
         if (OnVisit != null)
         {
             OnVisit(gameObject);
+        }
+        else
+        {
+            Debug.Log("Onvisit == null");
         }
     }
 
