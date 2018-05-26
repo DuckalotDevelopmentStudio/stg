@@ -74,7 +74,7 @@ public class PlanetUI : MonoBehaviour
 
         if (vistingPlanetNameText.text == planet.GetPlanetInfo().GetPlanetName())
         {
-            Debug.Log("Closing VisitUI");
+            //Debug.Log("Closing VisitUI");
             visitingPanel.SetActive(false);
             visitButton.onClick.RemoveAllListeners();
             vistingPlanetNameText.text = "";
@@ -95,8 +95,9 @@ public class PlanetUI : MonoBehaviour
 
     void SetupTradeButtons()
     {
-        playerBuyText.text = currentPlanet.GetComponent<Planet>().GetPlanetInfo().buy;
-        planetSellText.text = currentPlanet.GetComponent<Planet>().GetPlanetInfo().sell;
+        playerBuyText.text = currentPlanet.GetComponent<Planet>().GetPlanetInfo().GetBuy();
+        planetSellText.text = currentPlanet.GetComponent<Planet>().GetPlanetInfo().GetSell();
+        Debug.Log(currentPlanet.GetComponent<Planet>().GetPlanetInfo().GetBuy());
     }
 
 }

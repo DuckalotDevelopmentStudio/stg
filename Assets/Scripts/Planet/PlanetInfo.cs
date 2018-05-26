@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlanetInfo
 {
@@ -8,8 +9,8 @@ public class PlanetInfo
     private string planetName;
     private string planetDescription;
     PlanetInventory planetInventory;
-    public string buy;
-    public string sell;
+    private string buy;
+    private string sell;
 
     public PlanetInfo(TextAsset planetInfoTextFile, float moneyAmount)
     {
@@ -19,14 +20,11 @@ public class PlanetInfo
 
     public void GetInfoFromFile(TextAsset planetInfoTextFile)
     {
-        string planetText = planetInfoTextFile.text;
-        int seperator = planetText.IndexOf('\n');
-
-        if (seperator > -1)
-        {
-            planetName = planetText.Substring(0, seperator);
-            planetDescription = planetText.Substring(seperator + 1);
-        }
+        string[] lines = File.ReadAllLines(UnityEditor.AssetDatabase.GetAssetPath(planetInfoTextFile));
+        planetName = lines[0];
+        planetDescription = lines[1];
+        buy = lines[2];
+        sell = lines[3];
     }
     public string GetPlanetName()
     {
@@ -39,5 +37,13 @@ public class PlanetInfo
     public PlanetInventory GetPlanetInventory()
     {
         return planetInventory;
+    }
+    public string GetBuy()
+    {
+        return buy;
+    }
+    public string GetSell()
+    {
+        return sell;
     }
 }
