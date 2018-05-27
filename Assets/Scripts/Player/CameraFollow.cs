@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
     [SerializeField]
-    private GameObject player;
+    private Transform player;
     [SerializeField]
     private float yOffset;
-	// Update is called once per frame
-	void Update () {
-        transform.position = player.transform.position;
-        transform.position += new Vector3(0, yOffset);
+    [SerializeField]
+    private float smoothAmount = 0.5f;
+    private Vector3 velocity;
+	
+    void Start() {
+        if(!player)
+            player = GameObject.FindObjectOfType<Player>().gameObject.transform;
+    }
+	void LateUpdate () {
+        transform.position = Vector3.SmoothDamp(transform.position, 
+                                                new Vector3(player.position.x, player.position.y + yOffset, player.position.z), 
+                                                ref velocity, 
+                                                smoothAmount);
 	}
 }

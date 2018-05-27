@@ -484,8 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbc5ae326b9a234cbb74aedae694c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1539177838}
+  player: {fileID: 0}
   yOffset: 7.87
+  smoothAmount: 0.5
 --- !u!124 &101874388
 Behaviour:
   m_ObjectHideFlags: 0
@@ -679,7 +680,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &212808701
 GameObject:
@@ -779,12 +780,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83378ddb87e6ad445afdff339cd308a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TradeLoader: {fileID: 826618437}
-  ItemStats: {fileID: 0}
   planetInfoFilePath: Planets/Planet_Higoon
   spaceship: {fileID: 1539177838}
+  money: 0
   planetUI: {fileID: 620177289}
   visitDistance: 2
+  timer: 1
 --- !u!1 &235965631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,8 +1017,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbc5ae326b9a234cbb74aedae694c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1539177838}
+  player: {fileID: 0}
   yOffset: 4
+  smoothAmount: 0.5
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -1065,7 +1067,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &350277395
 GameObject:
@@ -1165,12 +1167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83378ddb87e6ad445afdff339cd308a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TradeLoader: {fileID: 826618437}
-  ItemStats: {fileID: 0}
   planetInfoFilePath: Planets/Planet_Hubble
   spaceship: {fileID: 1539177838}
+  money: 0
   planetUI: {fileID: 620177289}
   visitDistance: 2
+  timer: 1
 --- !u!1 &350713359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1561,7 @@ RectTransform:
   - {fileID: 2119775466}
   - {fileID: 704696531}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1699,12 +1701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83378ddb87e6ad445afdff339cd308a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TradeLoader: {fileID: 826618437}
-  ItemStats: {fileID: 0}
   planetInfoFilePath: Planets/Planet_Steinig
   spaceship: {fileID: 1539177838}
+  money: 0
   planetUI: {fileID: 620177289}
   visitDistance: 2
+  timer: 1
 --- !u!1 &620177285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2464,6 @@ GameObject:
   - component: {fileID: 826618434}
   - component: {fileID: 826618435}
   - component: {fileID: 826618436}
-  - component: {fileID: 826618437}
   m_Layer: 0
   m_Name: Planets
   m_TagString: Untagged
@@ -2485,7 +2486,7 @@ Transform:
   - {fileID: 212808702}
   - {fileID: 601616400}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &826618435
 MonoBehaviour:
@@ -2511,19 +2512,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
     Item: []
---- !u!114 &826618437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 826618433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133f46f89e80057489b85f31cf643753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tradeList:
-    Trade: []
 --- !u!1 &843092411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1081509770 stripped
 MonoBehaviour:
@@ -3465,12 +3453,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb54abc96510fc439bcd26b6e262601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForwardMovementSpeed: 2
-  BackMovementSpeed: 1
-  RotationSpeed: 60
-  MovementFuelCost: 1
-  RotationFuelCost: 1
-  Fuel: 100
+  forwardMovementSpeed: 3
+  backMovementSpeed: 3
+  rotationSpeed: 20
+  movementFuelCost: 1
+  rotationFuelCost: 1
+  fuel: 100
 --- !u!4 &1539177840
 Transform:
   m_ObjectHideFlags: 0
@@ -3816,7 +3804,7 @@ RectTransform:
   m_Children:
   - {fileID: 589421185}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -1,34 +1,46 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
-    public float ForwardMovementSpeed;
-    public float BackMovementSpeed;
-    public float RotationSpeed;
-    public float MovementFuelCost;
-    public float RotationFuelCost;
-    public float Fuel = 100;
-     
-    void FixedUpdate() {
+    [SerializeField]
+    private float forwardMovementSpeed;
+    [SerializeField]
+    private float backMovementSpeed;
+    [SerializeField]
+    private float rotationSpeed;
+    [SerializeField]
+    private float movementFuelCost;
+    [SerializeField]
+    private float rotationFuelCost;
+    public float fuel = 100;
+
+    void Update()
+    {
+        Move();
+    }
+
+    void Move()
+    {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * ForwardMovementSpeed * Time.deltaTime);      // Moves the player forward
-            Fuel -= MovementFuelCost;
+            transform.Translate(Vector3.forward * forwardMovementSpeed * Time.deltaTime);
+            fuel -= movementFuelCost;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(- Vector3.forward * BackMovementSpeed * Time.deltaTime);    // Moves the player back
-            Fuel -= MovementFuelCost;
+            transform.Translate(-Vector3.forward * backMovementSpeed * Time.deltaTime);
+            fuel -= movementFuelCost;
         }
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up, RotationSpeed * Time.deltaTime);               // Rotates the player to the left
-            Fuel -= RotationFuelCost;
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            fuel -= rotationFuelCost;
         }
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.up, -RotationSpeed * Time.deltaTime);              // Rotates the player to the right
-            Fuel -= RotationFuelCost;
+            transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
+            fuel -= rotationFuelCost;
         }
     }
 }

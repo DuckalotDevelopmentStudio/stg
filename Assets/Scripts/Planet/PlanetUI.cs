@@ -47,7 +47,7 @@ public class PlanetUI : MonoBehaviour
 
     public void OpenVisitUI(GameObject planetVisiting)
     {
-        if (planetPanel.activeSelf == false)
+        if (!planetPanel.activeSelf)
         {
             Planet planet = planetVisiting.GetComponent<Planet>();
             vistingPlanetNameText.text = planet.GetPlanetInfo().GetPlanetName();
@@ -72,7 +72,7 @@ public class PlanetUI : MonoBehaviour
 
         Planet planet = planetVisiting.GetComponent<Planet>();
 
-        if (vistingPlanetNameText.text == planet.GetPlanetInfo().GetPlanetName())
+        if (vistingPlanetNameText.text.Equals(planet.GetPlanetInfo().GetPlanetName()))
         {
             //Debug.Log("Closing VisitUI");
             visitingPanel.SetActive(false);
