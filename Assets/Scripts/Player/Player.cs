@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private int maxWeight;
     [SerializeField]
-    private float money;
+    public float money;
     public string listOfItems;
     [SerializeField]
     private Text itemListText;

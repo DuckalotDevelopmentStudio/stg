@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed = 0f;
     [SerializeField]
-    private float fuel;
+    public float fuel;
 
     private float maxFuel = 100f;
 
