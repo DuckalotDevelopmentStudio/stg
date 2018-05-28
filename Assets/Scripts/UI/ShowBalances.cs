@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowBalances : MonoBehaviour {
     
     public Player player;
-    public PlayerMovement playerm;
+    public PlayerMovement playerMovement;
     public Text moneyText;
     public Slider fuelSlider;
     
@@ -18,6 +18,6 @@ public class ShowBalances : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		moneyText.text = "" + player.money;
-		fuelSlider.value = playerm.fuel;
+		fuelSlider.value = playerMovement.fuel;
 	}
 }
