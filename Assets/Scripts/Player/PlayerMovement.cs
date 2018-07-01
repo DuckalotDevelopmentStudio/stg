@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     public float fuel;
 
+    [SerializeField]
     private float maxFuel = 100f;
 
     private float maxForwardSpeed = 1.5f;
