@@ -24,7 +24,7 @@ public class PlanetUI : MonoBehaviour
     [SerializeField]
     private GameObject visitingPanel;
     [SerializeField]
-    private Text vistingPlanetNameText;
+    private Text visitingPlanetNameText;
     [SerializeField]
     private Button visitButton;
 
@@ -46,7 +46,6 @@ public class PlanetUI : MonoBehaviour
             planetPanel.SetActive(true);
 
         playerCanvas.gameObject.SetActive(false);
-
     }
 
     public void OpenVisitUI(GameObject planetVisiting)
@@ -54,20 +53,17 @@ public class PlanetUI : MonoBehaviour
         if (!planetPanel.activeSelf)
         {
             Planet planet = planetVisiting.GetComponent<Planet>();
-            vistingPlanetNameText.text = planet.GetPlanetInfo().GetPlanetName();
+            visitingPlanetNameText.text = planet.GetPlanetInfo().GetPlanetName();
             
             visitButton.onClick.AddListener(() =>
             {
-                Planet temp = planet;
                 planet.Visit();
                 visitingPanel.SetActive(false);
-
             });
             visitingPanel.transform.position = Camera.main.WorldToScreenPoint(planetVisiting.transform.position);
 
             if (!visitingPanel.activeSelf)
                 visitingPanel.SetActive(true);
-
         }
     }
     public void CloseVisitUI(GameObject planetVisiting)
@@ -75,12 +71,12 @@ public class PlanetUI : MonoBehaviour
 
         Planet planet = planetVisiting.GetComponent<Planet>();
 
-        if (vistingPlanetNameText.text.Equals(planet.GetPlanetInfo().GetPlanetName()))
+        if (visitingPlanetNameText.text.Equals(planet.GetPlanetInfo().GetPlanetName()))
         {
             //Debug.Log("Closing VisitUI");
             visitingPanel.SetActive(false);
             visitButton.onClick.RemoveAllListeners();
-            vistingPlanetNameText.text = "";
+            visitingPlanetNameText.text = "";
         }
 
     }

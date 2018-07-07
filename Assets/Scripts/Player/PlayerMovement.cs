@@ -4,16 +4,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed = 0f;
-    [SerializeField]
+    
     public float fuel;
-
-    [SerializeField]
-    private float maxFuel = 100f;
+    public float maxFuel = 100f;
 
     private float maxForwardSpeed = 1.5f;
     private float maxBackwardSpeed = 0.75f;
     
-    private float RotationSpeed = 40f;
+    private float rotationSpeed = 40f;
 
     private float forwardAcceleration = 0.5f;
     private float backwardAcceleration = 0.375f;
@@ -32,35 +30,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-            if (Input.GetKey(KeyCode.D) && fuel >= 0)                                       // checks for keyinput and of there is any fuel left
+            if (Input.GetKey(KeyCode.D) && fuel >= 0)
             {
-                transform.Rotate(Vector3.up, RotationSpeed * Time.deltaTime);               // Rotates the player to the left
-                fuel -= RotationFuelCost;                                                   // decreases the fuel
+                transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+                fuel -= RotationFuelCost;
             }
             if (Input.GetKey(KeyCode.A) && fuel >= 0)
             {
-                transform.Rotate(Vector3.up, -RotationSpeed * Time.deltaTime);              // Rotates the player to the right
-                fuel -= RotationFuelCost;                                                   // decreases the fuel
+                transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
+                fuel -= RotationFuelCost;
             }
             if (Input.GetKey(KeyCode.W) && fuel >= 0)
             {
-                MovementSpeed += forwardAcceleration * Time.deltaTime;                      // Moves the player forward
-                fuel -= forwardMovementFuelCost;                                                   // decreases the fuel
+                MovementSpeed += forwardAcceleration * Time.deltaTime;
+                fuel -= forwardMovementFuelCost;
             }
             else if (Input.GetKey(KeyCode.S) && fuel >= 0)
             {
-                MovementSpeed -= backwardAcceleration * Time.deltaTime;                     // Moves the player backward
-                fuel -= backwardMovementFuelCost;                                                   // decreases the fuel
+                MovementSpeed -= backwardAcceleration * Time.deltaTime;
+                fuel -= backwardMovementFuelCost;
             }
-            else if (movementSpeed > 0)                                                     // Ckecks if the player is moven forward when no key is pressed to move it
+            else if (movementSpeed > 0)
             {
-                MovementSpeed -= automaticAcceleration * Time.deltaTime;                    // brakes the player when it is moving forward
+                MovementSpeed -= automaticAcceleration * Time.deltaTime;
             }
             else if (movementSpeed < 0)
             {
-                MovementSpeed += automaticAcceleration * Time.deltaTime;                    // brakes the player when it is moving backward
+                MovementSpeed += automaticAcceleration * Time.deltaTime;
 
             }
-            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);          // actually moves the player based on the movementspeed witch is defined in the last four if statements
+            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 }

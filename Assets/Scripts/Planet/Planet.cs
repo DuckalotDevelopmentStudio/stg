@@ -35,13 +35,11 @@ public class Planet : MonoBehaviour
         }
     }
 
-    private void Update()
+    void LateUpdate()
     {
-        //Debug.Log(Vector3.Distance(GetComponent<Transform>().position, spaceship.transform.position));
         if(Vector3.Distance(gameObject.transform.position, spaceship.transform.position) < visitDistance)
         {
             planetUI.OpenVisitUI(gameObject);
-            //Debug.Log("Player is near: " + planetInfo.GetPlanetName());
         }
         else
         {
@@ -55,10 +53,6 @@ public class Planet : MonoBehaviour
         if (OnVisit != null)
         {
             OnVisit(gameObject);
-        }
-        else
-        {
-            //Debug.Log("Onvisit == null");
         }
     }
     

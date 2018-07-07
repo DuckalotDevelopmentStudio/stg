@@ -5,19 +5,25 @@ using UnityEngine.UI;
 
 public class ShowBalances : MonoBehaviour {
     
-    public Player player;
-    public PlayerMovement playerMovement;
-    public Text moneyText;
-    public Slider fuelSlider;
-    
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+	private Player player;
+    [SerializeField]
+	private PlayerMovement playerMovement;
+    [SerializeField]
+	private Text moneyText;
+    [SerializeField]
+	private Slider fuelSlider;
 
+	void Start() {
+		if(!player)
+			player = GameObject.FindObjectOfType<Player>();
+		if(!playerMovement)
+			playerMovement = player.GetComponent<PlayerMovement>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void LateUpdate () {
 		moneyText.text = "" + player.money;
-		fuelSlider.value = playerMovement.fuel;
+		// Gets the current percentage of fuel left to keep the values from 0-100
+		fuelSlider.value = (playerMovement.fuel / playerMovement.maxFuel) * 100;
 	}
 }
